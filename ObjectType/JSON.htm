@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TV Object</title>
+
+    <script>
+        var tv = {
+            name: "Samsung TV",
+            brand: "Samsung",
+            model: "Crystal 4K",
+            category: "Electronics",
+            screenSize: "55 inch",
+            resolution: "4K UHD",
+            displayType: "LED",
+            color: "Black",
+            warranty: "2 Years",
+            countryOfOrigin: "India",
+            seller: "Samsung Official Store",
+
+            price: 56000,
+            qty: 1,
+
+            total: function () {
+                return this.qty * this.price;
+            },
+
+            print: function () {
+                document.getElementById("output").innerHTML =
+                    `Name = ${this.name}<br>
+                     Price = ${this.price}<br>
+                     Qty = ${this.qty}<br>
+                     Total = ${this.total()}`;
+            }
+        };
+
+        window.onload = function () {
+            var inputQty = parseInt(prompt("Enter your Quantity"));
+
+            if (isNaN(inputQty) || inputQty <= 0) {
+                tv.qty = 1;
+            } else {
+                tv.qty = inputQty;
+            }
+
+            tv.print();
+        };
+    </script>
+</head>
+
+<body>
+    <div id="output"></div>
+</body>
+</html>

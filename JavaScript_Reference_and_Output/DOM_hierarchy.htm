@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM Hierarchy</title>
+
+    
+    <script type="text/javascript">
+        "use strict";
+        function bodyload() {
+            window.document.images[0].src = "/public/images/womenfashion.jpg";
+            window.document.forms[0].elements[0].value = "Login";
+            window.document.forms[1].elements[2].value = "Register";
+        }
+    </script>
+</head>
+
+<body onload="bodyload()">
+
+    <div>
+        <img width="600" height="500" border="1">
+    </div>
+
+    <div>
+        <form>
+            <h2>Login</h2>
+            <input type="button"> <input type="email">
+        </form>
+    </div>
+
+    <div>
+        <form>
+            <h2>Register</h2>
+            <input type="text" placeholder="Name">
+            <input type="password" placeholder="Mobile">
+            <input type="button">
+        </form>
+    </div>
+
+</body>
+
+</html>

@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Validation Example</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+        }
+
+        dl {
+            width: 300px;
+        }
+
+        input, textarea {
+            width: 100%;
+            padding: 8px;
+            margin-top: 4px;
+            border: 1px solid #aaa;
+            border-radius: 4px;
+        }
+
+        .error {
+            color: red;
+            font-size: 12px;
+        }
+
+        .info {
+            color: goldenrod;
+            font-size: 12px;
+        }
+
+        /* Bold text inside input & textarea */
+        .txtName {
+            font-weight: bold;
+        }
+    </style>
+
+    <script>
+        function VerifyName() {
+            const username = document.getElementById("txtName").value.trim();
+            const lblName = document.getElementById("lblName");
+
+            // Reset to default class
+            lblName.className = "lblName";
+
+            if (username.length === 0) {
+                lblName.textContent = "Name is required";
+                lblName.classList.add("error");
+            } else if (username.length < 4) {
+                lblName.textContent = "Name is too short";
+                lblName.classList.add("error");
+            } else {
+                lblName.textContent = "";
+            }
+        }
+
+        function VerifyComments() {
+            const comments = document.getElementById("txtComments").value;
+            const lblComments = document.getElementById("lblComments");
+
+            lblComments.className = "lblComments info";
+            lblComments.textContent = `${100 - comments.length} characters left`;
+        }
+    </script>
+</head>
+
+<body>
+    <h2>Live Form Validation Example</h2>
+
+    <dl>
+        <dt>User Name</dt>
+        <dd>
+            <input type="text" id="txtName" class="txtName"
+                   onkeyup="VerifyName()" onblur="VerifyName()">
+        </dd>
+        <dd id="lblName" class="lblName"></dd>
+
+        <dt>Your Comments</dt>
+        <dd>
+            <textarea id="txtComments" class="txtComments"
+                      maxlength="100"
+                      rows="4"
+                      cols="40"
+                      onkeyup="VerifyComments()"></textarea>
+        </dd>
+        <dd id="lblComments" class="lblComments"></dd>
+    </dl>
+</body>
+</html>

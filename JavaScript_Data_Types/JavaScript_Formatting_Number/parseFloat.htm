@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>parseFloat Example</title>
+</head>
+<body>
+
+<h3>Bank Amount Conversion (parseFloat Example)</h3>
+
+<script>
+
+  // Step 1: User enters amount (STRING)
+  let userAmount = prompt("Enter your amount: ");
+  document.write("<b>User Entered (String):</b> " + userAmount + "<br>");
+  document.write("Type: " + typeof userAmount + "<br><br>");
+
+  // Step 2: Convert string → number (can preserve decimals)
+  let amountNumber = parseFloat(userAmount);
+  document.write("<b>Converted to Number (parseFloat):</b> " + amountNumber + "<br>");
+  document.write("Type: " + typeof amountNumber + "<br><br>");
+
+  // Step 3: Format using toLocaleString() (returns STRING)
+  let formattedAmount = amountNumber.toLocaleString("en-IN", {
+    style: "currency",
+    currency: "INR"
+  });
+
+  document.write("<b>Formatted Amount, en-in  50(String):</b> " + formattedAmount + "<br>");
+  document.write("Type: " + typeof formattedAmount + "<br><br>");
+
+  // Step 4: Convert formatted string back → number using parseFloat
+  // Remove everything except digits and decimal point
+  let cleanString = formattedAmount.replace(/[^0-9.]/g, "");
+  let backToNumber = parseFloat(cleanString);
+
+  document.write("<b>Converted Back Using parseFloat:</b> " + backToNumber + "<br>");
+  document.write("Type: " + typeof backToNumber + "<br>");
+
+</script>
+
+</body>
+</html>

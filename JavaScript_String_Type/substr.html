@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>substr() Practice</title>
+
+    <script>
+        function SubStrString() {
+
+            const enter_string = document.getElementById("txtString").value;
+            const start_index = document.getElementById("txtStart").value;
+            const char_count = document.getElementById("txtCount").value;
+            const result_string = document.getElementById("lblResult");
+
+            // Check string empty
+            if (enter_string.length === 0) {
+                result_string.innerHTML = "Enter the String";
+                return;
+            }
+
+            // Convert to numbers
+            const s = Number(start_index);
+            const c = char_count === "" ? null : Number(char_count);
+
+            let output = `<strong>Original:</strong> ${enter_string}<br><br>`;
+
+            // Only start index provided (char count empty)
+            if (char_count === "") {
+                output += `<strong>substr(${s}):</strong> ${enter_string.substr(s)}<br>`;
+            }
+
+            // Both start and count given
+            else {
+                if (isNaN(s) || isNaN(c)) {
+                    result_string.innerHTML = "Enter valid indexes";
+                    return;
+                }
+
+                if (c <= 0) {
+                    result_string.innerHTML = "Character count must be greater than zero";
+                    return;
+                }
+
+                output += `<strong>substr(${s}, ${c}):</strong> ${enter_string.substr(s, c)}<br>`;
+            }
+
+            result_string.innerHTML = output;
+        }
+    </script>
+</head>
+
+<body>
+    <h2>substr() Method Practice</h2>
+
+    <dl>
+        <dt>Enter String</dt>
+        <dd>
+            <input type="text" id="txtString" onkeyup="SubStrString()">
+        </dd>
+
+        <dt>Start Index</dt>
+        <dd>
+            <input type="number" id="txtStart" onkeyup="SubStrString()">
+        </dd>
+
+        <dt>Number of Characters (optional)</dt>
+        <dd>
+            <input type="number" id="txtCount" onkeyup="SubStrString()">
+        </dd>
+
+        <dd id="lblResult" style="margin-top: 10px;"></dd>
+    </dl>
+
+</body>
+</html>

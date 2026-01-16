@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Message Example</title>
+</head>
+<body>
+
+<h3>User Message Example</h3>
+
+<script>
+    var uname = prompt("Enter your name");
+    var age = parseInt(prompt("Enter your age"));
+
+    var msg1 = "Hello !&nbsp;" + uname + "&nbsp;you will be&nbsp;" + (age + 1) + "&nbsp;next year.";
+    var msg2 = `Hello ! ${uname} you will be ${age + 1} next year.`;
+
+    document.write(msg1 + "<br>");
+    document.write(msg2);
+</script>
+
+</body>
+</html>

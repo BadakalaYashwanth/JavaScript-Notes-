@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Product View</title>
+
+<link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.css">
+<link rel="stylesheet" href="../node_modules/bootstrap-icons/font/bootstrap-icons.css">
+
+<script>
+function bodyload() {
+    fetch("./product.json")
+        .then(response => response.json())
+        .then(product => {
+
+            document.getElementById("imgProduct").src = product.image;
+            document.getElementById("lblTitle").innerText = product.title;
+
+            document.getElementById("rating").innerHTML =
+              `<span class="badge bg-success fs-6 p-2 rounded text-white">
+                 ${product.rating.rate} <span class="bi bi-star-fill"></span>
+               </span>`;
+
+            document.getElementById("reviews").innerText =
+              `${product.rating.ratings.toLocaleString()} Ratings & ${product.rating.reviews.toLocaleString()} Reviews`;
+
+            document.getElementById("lblPrice").innerText =
+              product.price.toLocaleString('en-IN', {
+                  style: 'currency',
+                  currency: 'INR',
+                  minimumFractionDigits: 0
+              });
+
+            const offersList = document.getElementById("offers");
+            offersList.innerHTML = "";
+
+            product.offers.forEach(offer => {
+                const li = document.createElement("li");
+                li.className = "bi bi-tag-fill text-success my-3";
+                li.innerHTML = `<span class="text-secondary">${offer}</span>`;
+                offersList.appendChild(li);
+            });
+        })
+        .catch(error => console.error(error));
+}
+</script>
+
+</head>
+
+<body class="container-fluid" onload="bodyload()">
+
+<div class="row mt-4">
+
+    <div class="col-3">
+        <img id="imgProduct" class="img-fluid">
+    </div>
+
+    <div class="col-9">
+
+        <div class="fs-4 fw-semibold" id="lblTitle"></div>
+
+        <div class="mt-2 d-flex align-items-center">
+            <span id="rating"></span>
+            <span class="mx-3 fs-6 text-secondary fw-bold" id="reviews"></span>
+        </div>
+
+        <div class="mt-3 fs-1 fw-bold" id="lblPrice"></div>
+
+        <div class="mt-4">
+            <ul id="offers" class="list-unstyled"></ul>
+        </div>
+
+    </div>
+
+</div>
+
+</body>
+</html>

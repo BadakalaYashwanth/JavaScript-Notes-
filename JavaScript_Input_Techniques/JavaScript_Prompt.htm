@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Prompt</title>
+
+    <script>
+        function SearchGadget() {
+            var Category = prompt("Enter the Product Category");
+
+            if (Category == null || Category == "") {
+                alert("Enter the Category");
+            } else {
+                document.getElementById("lblcategory").innerHTML = Category;
+
+                var Model = prompt("Enter the Product Model");
+
+                if (Model == null || Model == "") {
+                    alert("Enter the Model");
+                } else {
+                    document.getElementById("lblmodel").innerHTML = Model;
+
+                    var Brand = prompt("Enter the Product Brand");
+
+                    if (Brand == null || Brand == "") {
+                        alert("Enter the Brand");
+                    } else {
+                        document.getElementById("lblbrand").innerHTML = Brand;
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+
+<body>
+
+    <dl>
+        <dt>Category</dt>
+        <dd id="lblcategory"></dd>
+
+        <dt>Model</dt>
+        <dd id="lblmodel"></dd>
+
+        <dt>Brand</dt>
+        <dd id="lblbrand"></dd>
+    </dl>
+
+    <button onclick="SearchGadget()">Search</button>
+
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <style>
+        .card {
+            width: min(90%, 400px);
+            padding: clamp(12px, 4vw, 24px);
+            border: 1px solid #ccc;
+        }
+
+        /* Highlight card only if it has an image */
+        .card:has(img) {
+            border-color: green;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="card">
+        <p>No image here</p>
+    </div>
+
+    <div class="card">
+        <img src="./public/images/Bharat.jpg">
+        <p>With image</p>
+    </div>
+
+</body>
+
+</html>

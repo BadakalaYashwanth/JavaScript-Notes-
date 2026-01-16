@@ -1,0 +1,30 @@
+- Data type defines the complete data structure.
+
+- Data structure specifies type of data, behaviour of data & range or limit for data.
+
+- The JavaScript data types are classified into 2 types
+
+
+
+       1. Primitive Types
+
+       2. Non Primitive Types
+
+1. Primitive Data Types
+
+- They are immutable type
+- The data type, whose value can't be changed after they are created 
+- Use LIFO and JavaScript primitive data type are 
+
+1. Number 
+2. Float
+3. Boolean
+4. Null
+5. Undefinied
+6. BigInt
+7. Symbol
+
+
+
+
+

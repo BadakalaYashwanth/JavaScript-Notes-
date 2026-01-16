@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dynamic File Inputs</title>
+
+    <script>
+        function MoreClick() {
+            // Step 1: Create a new input element
+            var input = document.createElement("input");
+
+            // Step 2: Assign type=file
+            input.type = "file";
+
+            // Step 3: Add spacing
+            input.style.display = "block";
+            input.style.marginTop = "10px";
+
+            // Step 4: Append inside the div
+            document.querySelector("div").appendChild(input);
+        }
+    </script>
+</head>
+<body>
+
+    <h2>File Upload 
+        <button onclick="MoreClick()">More</button>
+    </h2>
+
+    <div>
+        <input type="file">
+    </div>
+
+</body>
+</html>

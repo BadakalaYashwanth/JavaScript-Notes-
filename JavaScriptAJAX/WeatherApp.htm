@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Weather App</title>
+
+<link rel="stylesheet" href="../node_modules/bootstrap-icons/font/bootstrap-icons.css">
+<link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.css">
+
+<script>
+function searchclick(){
+
+    var cityname = document.getElementById("textcity").value;
+
+    var url = `https://api.openweathermap.org/data/2.5/weather?q=${cityname}&appid=7063a4a636e651a48fe8512c0623dda5&units=metric`;
+
+    fetch(url)
+    .then(function(response){
+        return response.json();
+    })
+    .then(function(data){
+
+        document.getElementById("lblcity").innerHTML = data.name;
+        document.getElementById("lbltemp").innerHTML = `<span class="bi bi-thermometer"></span> ${data.main.temp} &deg; C`;
+        document.getElementById("lbldescription").innerHTML = data.weather[0].description.toUpperCase();
+    });
+}
+</script>
+</head>
+
+<body class="container-fluid d-flex justify-content-center align-items-center bg-secondary">
+
+<div class="bg-light p-4 mt-4 w-50">
+    <div class="input-group">
+        <input type="text" id="textcity" placeholder="Enter City Name" class="form-control">
+        <button onclick="searchclick()" class=" btn btn-warning bi bi-search "></button>
+    </div>
+
+    <div>
+        <div class="my-4 fs-2" id="lblcity"></div>
+        <div class="my-3 fs-4" id="lbltemp"></div>
+        <div class="my-3 fs-4 fw-bold" id="lbldescription"></div> 
+    </div>
+</div>
+
+</body>
+</html>

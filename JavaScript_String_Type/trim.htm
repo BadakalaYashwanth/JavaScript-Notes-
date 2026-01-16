@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trim Methods</title>
+
+    <script>
+        function trimMethod() {
+
+            const text = document.getElementById("txtstring").value;
+            const output = document.getElementById("result");
+
+            // FIX: length spelling
+            if (text.length === 0) {
+                output.innerHTML = "Type something (with spaces) to trim.";
+                return;
+            }
+
+            // FIX: variable name consistency
+            const trimStartResult = text.trimStart();
+            const trimEndResult = text.trimEnd();
+            const trimResult = text.trim();
+
+            output.innerHTML = `
+                <strong>Original: </strong> "<span style='color:blue;'>${text}</span>"<br><br>
+
+                <strong>trimStart():</strong> "<span style='color:green;'>${trimStartResult}</span>"<br>
+                <em>Leading spaces removed</em><br><br>
+
+                <strong>trimEnd():</strong> "<span style='color:purple;'>${trimEndResult}</span>"<br>
+                <em>Trailing spaces removed</em><br><br>
+
+                <strong>trim():</strong> "<span style='color:red;'>${trimResult}</span>"<br>
+                <em>Both leading and trailing spaces removed</em><br>
+            `;
+        }
+    </script>
+</head>
+
+<body>
+
+    <h2>trimStart(), trimEnd(), trim() Practice</h2>
+
+    <dl>
+        <dt>Enter String</dt>
+        <dd>
+            <input type="text" id="txtstring" onkeyup="trimMethod()">
+        </dd>
+
+        <dd id="result" style="margin-top: 10px;"></dd>
+    </dl>
+
+</body>
+</html>

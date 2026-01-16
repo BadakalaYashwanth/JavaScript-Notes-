@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Container Statement</title>
+    <link rel="stylesheet" href="../node_modules/bootstrap-icons/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.css">
+
+    <script>
+        function PayClick() {
+            var card = document.getElementById("textcard").value.trim();
+            var cvv = document.getElementById("numbcvv").value.trim();
+            var expiry = document.getElementById("numberexp").value;
+            var msg = document.getElementById("msg");
+
+            if (card.length === 0) {
+                msg.innerHTML = "Invalid Number";
+                return;
+            }
+
+            // NUMBER CHECK
+            if (!/^\d+$/.test(card)) {
+                msg.innerHTML = "Only numbers allowed";
+                return;
+            }
+
+            if (!/^\d+$/.test(cvv)) {
+                msg.innerHTML = "Invalid CVV";
+                return;
+            }
+
+            if (card === "1234567890") {
+                if (cvv === "1234") {
+                    if (expiry === "2026") {
+                        document.write("<h2>Payment Successful</h2>");
+                    } else {
+                        msg.innerHTML = "Check your Expiry";
+                    }
+                } else {
+                    msg.innerHTML = "Invalid CVV";
+                }
+            } else {
+                msg.innerHTML = "Invalid Card";
+            }
+        }
+    </script>
+</head>
+
+<body class="container-fluid d-flex justify-content-center mt-5">
+
+    <form class="p-4 mx-auto border rounded" style="width: 350px;">
+        <dl>
+            <dt>Card Number</dt>
+            <dd>
+                <input type="text" id="textcard" maxlength="16" class="form-control">
+            </dd>
+
+            <dt class="mt-3">CVV</dt>
+            <dd>
+                <input type="number" id="numbcvv" maxlength="4" class="form-control">
+            </dd>
+
+            <dt class="mt-3">Expiry</dt>
+            <dd>
+                <select id="numberexp" class="form-select">
+                    <option>Select Expiry</option>
+                    <option>2025</option>
+                    <option>2026</option>
+                    <option>2027</option>
+                </select>
+            </dd>
+        </dl>
+
+        <button type="button" id="btnPay" class="btn btn-primary w-100 mt-3" onclick="PayClick()">Pay</button>
+
+        <h2 class="text-center text-danger mt-3" id="msg"></h2>
+    </form>
+
+</body>
+</html>

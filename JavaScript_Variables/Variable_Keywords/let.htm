@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<script>
+    // Block scope
+    {
+        let a = 10;   // initialization
+        a = 20;       // assignment
+
+        console.log("Inside Block: a =", a);
+    }
+
+    // console.log(a); // ❌ Error - a is block-scoped
+
+    // Temporal Dead Zone (TDZ) example
+    // console.log(b); // ❌ ReferenceError: Cannot access 'b' before initialization
+    let b = 30;
+
+    // Shadowing in new block works
+    let c = 100;
+    {
+        let c = 200;  // ✔ allowed (different block)
+        console.log("Inner c =", c);
+    }
+    console.log("Outer c =", c);
+
+    // Shadowing in same block does NOT work:
+    // let c = 300; // ❌ Error
+</script>
+
+</body>
+</html>

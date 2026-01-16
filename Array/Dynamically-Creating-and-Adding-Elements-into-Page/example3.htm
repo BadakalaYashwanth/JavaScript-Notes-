@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Document</title>
+
+    <style>
+
+        ul{ 
+
+            list-style: none;
+
+        }
+
+        header {
+
+            border:1px solid gray;
+
+            padding: 20px;
+
+            margin-bottom: 20px;
+
+            display: flex;
+
+            justify-content: space-between;
+
+        }
+
+        nav span {
+
+            margin-right: 30px;
+
+        }
+
+    </style>
+
+    <script>
+
+        var collection = ['All', 'Electronics', 'Fashion', 'Footwear'];
+
+        function bodyload(){
+
+            collection.map(function(item){
+
+
+
+                 var li = document.createElement("li");
+
+                 li.textContent = item;
+
+                 document.querySelector("ol").appendChild(li);
+
+
+
+                 var option = document.createElement("option");
+
+                 option.text = item;
+
+                 option.value = item;
+
+                 document.querySelector("select").appendChild(option);
+
+
+
+                 var ul_li = document.createElement("li");
+
+                 ul_li.innerHTML = `<input type="checkbox" value=${item}> <label>${item}</label>`;
+
+                 document.querySelector("ul").appendChild(ul_li);
+
+
+
+                 var span = document.createElement("span");
+
+                 span.innerHTML = `<a href=${item}.html>${item}</a>`;
+
+                 document.querySelector("nav").appendChild(span);
+
+
+
+            })
+
+        }
+
+    </script>
+
+</head>
+
+<body onload="bodyload()">
+
+    <header>
+
+        <div>
+
+            <div>Amazon</div>
+
+        </div>
+
+        <nav>
+
+
+
+        </nav>
+
+        <div>
+
+            <button>Signin</button>
+
+        </div>
+
+    </header>
+
+    <ol>
+
+
+
+    </ol>
+
+    <select>
+
+
+
+    </select>
+
+    <ul>
+
+
+
+    </ul>
+
+</body>
+
+</html>

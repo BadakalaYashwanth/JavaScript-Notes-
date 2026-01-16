@@ -1,0 +1,119 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>Verify Mobile (flags demo)</title>
+
+  <!-- Bootstrap CDN -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"/>
+</head>
+<body class="container-fluid p-4">
+
+  <h2>Verify Mobile</h2>
+
+  <div class="w-25">
+    <label class="form-label fw-bold">Select your country</label>
+
+    <div class="input-group mb-3">
+      <!-- Give explicit values for clarity -->
+      <select id="lstCountries" class="form-select" onchange="CountryChange()">
+        <option value="">Select Country</option>
+        <option value="India">India</option>
+        <option value="US">US</option>
+        <option value="UK">UK</option>
+      </select>
+
+      <!-- img used for flag (empty initially) -->
+      <img id="imgFlag" width="60" alt="" style="margin-left:8px; object-fit:cover;">
+    </div>
+
+    <div class="mb-3">
+      <label class="form-label fw-bold">Mobile Number</label>
+      <input id="txtMobile" type="text" class="form-control" placeholder="">
+      <div id="lblMobileError" class="text-danger mt-1"></div>
+      <div id="lblMobileSuccess" class="text-success mt-1"></div>
+    </div>
+
+    <button class="btn btn-warning w-100" onclick="VerifyClick()">Verify Mobile</button>
+  </div>
+
+  <script>
+    // Shared state for pattern and tip (both functions can access)
+    let pattern = null;
+    let tip = "";
+
+    // Use country selection to set regex, tip and flag image
+    function CountryChange() {
+      const countryName = document.getElementById("lstCountries").value;
+      const flag = document.getElementById("imgFlag");
+      const txtMobile = document.getElementById("txtMobile");
+      document.getElementById("lblMobileError").textContent = "";
+      document.getElementById("lblMobileSuccess").textContent = "";
+
+      // Reset defaults
+      pattern = null;
+      tip = "";
+      txtMobile.placeholder = "";
+
+      switch (countryName) {
+        case "India":
+          // full-string match: +91 followed by exactly 10 digits
+          pattern = /^\+91\d{10}$/;
+          tip = "eg: +911234567890";
+          // online small flag image (works without local files)
+          flag.src = "https://flagcdn.com/w80/in.png";
+          flag.alt = "India flag";
+          txtMobile.placeholder = tip;
+          break;
+
+        case "US":
+          // simple: +1 followed by 10 digits
+          pattern = /^\+1\d{10}$/;
+          tip = "eg: +14255550100 (use +1 and 10 digits)";
+          flag.src = "https://flagcdn.com/w80/us.png";
+          flag.alt = "US flag";
+          txtMobile.placeholder = tip;
+          break;
+
+        case "UK":
+          // simple: +44 then 10 digits
+          pattern = /^\+44\d{10}$/;
+          tip = "eg: +441234567890 (use +44 and 10 digits)";
+          flag.src = "https://flagcdn.com/w80/gb.png";
+          flag.alt = "UK flag";
+          txtMobile.placeholder = tip;
+          break;
+
+        default:
+          // clear flag if no country selected
+          flag.src = "";
+          flag.alt = "";
+          txtMobile.placeholder = "Please select your country";
+          break;
+      }
+    }
+
+    // Validate input using current pattern
+    function VerifyClick() {
+      const mobile = document.getElementById("txtMobile").value.trim();
+      const err = document.getElementById("lblMobileError");
+      const suc = document.getElementById("lblMobileSuccess");
+      err.textContent = "";
+      suc.textContent = "";
+
+      // ensure a country/pattern is chosen
+      if (!pattern) {
+        err.textContent = "Select a country first.";
+        return;
+      }
+
+      if (pattern.test(mobile)) {
+        suc.textContent = `Your mobile ${mobile} verified successfully.`;
+      } else {
+        err.textContent = `Invalid Mobile: ${tip}`;
+      }
+    }
+  </script>
+</body>
+</html>

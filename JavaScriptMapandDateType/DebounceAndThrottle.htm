@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en-in">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../node_modules/bootstrap-icons/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.css">
+    <script>
+        var ms = 0
+        var sec = 0
+
+        function stopwatch(){
+            ms++;
+            document.getElementById("lblMs").innerHTML = `${ms} ms`
+
+            if(ms===999){
+                ms=0
+                sec++
+            }
+            document.getElementById("lblSeconds").innerHTML = `${sec} sec`
+        }
+
+        var thread;
+        function StartClick(){
+            thread = setInterval(stopwatch, 1)
+        }
+        function PauseClick(){
+            clearInterval(thread);
+        function ClearClick(){
+
+             clearInterval(thread);
+
+             ms=0;
+
+             sec=0;
+
+             document.getElementById("lblMs").innerHTML = `${ms} ms`;
+
+             document.getElementById("lblSeconds").innerHTML = `${sec} sec`;
+
+       }   
+    }
+    </script>
+</head>
+<body class="container-fluid d-flex justify-content-center">
+    <div class="mt-5 w-50">
+        <div class="row fs-4" style="height:50px">
+            <div class="col text-center p-2 border border-1">
+                <span id="lblHours"></span>
+            </div>
+            <div class="col text-center p-2 border border-1">
+                <span id="lblMinutes"></span>
+            </div>
+            <div class="col text-center p-2 border border-1">
+                <span id="lblSeconds"></span>
+            </div>
+            <div class="col text-center p-2 border border-1">
+                <span id="lblMs"></span>
+            </div>
+        </div>
+        <div class="mt-2">
+            <button onclick="StartClick()" class="btn btn-primary"> Start </button>
+            <button onclick="PauseClick()" class="btn btn-warning mx-2">Pause</button>
+            <button onclick="ClearClick()" class="btn btn-danger" >Clear</button>
+
+        </div>
+    </div>
+</body>
+</html>

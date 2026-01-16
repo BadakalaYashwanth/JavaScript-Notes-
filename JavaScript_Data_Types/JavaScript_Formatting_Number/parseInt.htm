@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ParseInt</title>
+</head>
+<body>
+    <h3>Bank Amount Conversion (parseInt Example)</h3>
+
+<script>
+
+  // Step 1: Take input (string)
+  let userAmount = prompt("Enter your amount: ");
+  document.write("<b>User Entered (String):</b> " + userAmount + "<br>");
+  document.write("Type: " + typeof userAmount + "<br><br>");
+
+  // Step 2: Convert string → number FIRST
+  let amountNumber = parseInt(userAmount);
+  document.write("<b>Converted to Number (parseInt):</b> " + amountNumber + "<br>");
+  document.write("Type: " + typeof amountNumber + "<br><br>");
+
+  // Step 3: Format using toLocaleString (returns STRING)
+  let formattedAmount = amountNumber.toLocaleString("en-IN", {
+    style: "currency",
+    currency: "INR"
+  });
+
+  document.write("<b>Formatted Amount en-in (String):</b> " + formattedAmount + "<br>");
+  document.write("Type: " + typeof formattedAmount + "<br><br>");
+
+  // Step 4: Convert formatted currency back to number
+  let cleanString = formattedAmount.replace(/[^0-9]/g, ""); // remove ₹ , commas, dot etc.
+  let backToNumber = parseInt(cleanString);
+
+  document.write("<b>Converted Back Using parseInt:</b> " + backToNumber + "<br>");
+  document.write("Type: " + typeof backToNumber + "<br><br>");
+
+</script>
+
+</body>
+</html>

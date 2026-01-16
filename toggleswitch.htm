@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Simple Toggle</title>
+
+  <!-- Load Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"/>
+</head>
+
+<body class="p-5">
+
+  <!-- Bootstrap switch wrapper -->
+  <div class="form-check form-switch">
+
+    <!-- Actual checkbox (Bootstrap turns it into a switch) -->
+    <input class="form-check-input" type="checkbox" id="toggleswitch">
+
+    <!-- Label linked to checkbox -->
+    <label class="form-check-label" for="toggleswitch">Dark Mode</label>
+  </div>
+
+  <script>
+    // Get the checkbox element by ID
+    const toggle = document.getElementById("toggleswitch");
+
+    // Listen for ON/OFF switch change
+    toggle.addEventListener("change", () => {
+
+      // If switch is turned ON
+      if (toggle.checked) {
+        document.body.style.background = "#222"; // dark background
+        document.body.style.color = "white";     // light text
+      } 
+      
+      // If switch is turned OFF
+      else {
+        document.body.style.background = "white"; // light background
+        document.body.style.color = "black";       // dark text
+      }
+    });
+  </script>
+
+</body>
+</html>

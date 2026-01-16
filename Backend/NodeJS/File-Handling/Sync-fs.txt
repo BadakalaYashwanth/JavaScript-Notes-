@@ -1,0 +1,11 @@
+First message written using fs.writeFileSync. This operation runs synchronously and blocks execution until the write is completed.
+
+[1765885819141] First sync append message. Written using fs.appendFileSync.
+
+[1765885821138] First sync append message. Written using fs.appendFileSync.
+
+[1765885822244] First sync append message. Written using fs.appendFileSync.
+
+[1765885826838] First sync append message. Written using fs.appendFileSync.
+
+[1765885830904] First sync append message. Written using fs.appendFileSync.

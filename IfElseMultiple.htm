@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Container Statement</title>
+    <link rel="stylesheet" href="../node_modules/bootstrap-icons/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.css">
+    <script>
+        var flag = "";
+
+        function ToggleContainer() {
+            document.getElementById("idContainer").style.display = "none";
+            document.getElementById("pwdContainer").style.display = "block";
+        }
+
+        function ContinueClick() {
+            var userid = document.getElementById("txtId").value;
+            var lblIdError = document.getElementById("lblIdError");
+            lblIdError.innerHTML = ""; // clear previous error
+
+            if (userid === "123456789") {
+                flag = `Your mobile ${userid} verified and OTP sent successfully`;
+                ToggleContainer();
+            } else if (userid === "johnthan@gmail.com") {
+                flag = `Your email ${userid} verified and OTP sent successfully`;
+                ToggleContainer();
+            } else {
+                lblIdError.innerHTML = `${userid} doesn't exist`;
+            }
+        }
+
+        function LoginClick() {
+            var password = document.getElementById("txtPwd").value;
+            if (password === "John@#6697") {
+                document.write(`<h1>${flag}</h1>`);
+            } else {
+                document.getElementById("lblPwdError").innerHTML = "Invalid Password";
+            }
+        }
+    </script>
+</head>
+<body class="container-fluid d-flex justify-content-center">
+
+    <div>
+        <div class="border border-1 rounded p-4 mt-4">
+
+            <h3>Signin or Create Account</h3>
+
+            <div id="idContainer">
+                <label class="form-label fw-bold">Your email or mobile number</label>
+
+                <div>
+                    <input id="txtId" class="form-control" type="text">
+                </div>
+
+                <div class="text-danger" id="lblIdError"></div>
+
+                <div class="mt-3">
+                    <button onclick="ContinueClick()" class="btn btn-warning w-100">Continue</button>
+                </div>
+            </div>
+
+            <div id="pwdContainer" style="display: none;">
+                <label class="form-label fw-bold">Your Password</label>
+
+                <div>
+                    <input type="password" class="form-control" id="txtPwd">
+                    <div id="lblPwdError" class="text-danger"></div>
+                </div>
+
+                <div class="mt-3">
+                    <button onclick="LoginClick()" class="btn btn-warning w-100">Login</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</body>
+</html>

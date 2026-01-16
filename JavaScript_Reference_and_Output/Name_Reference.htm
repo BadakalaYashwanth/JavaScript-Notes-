@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Name Reference</title>
+    <script>
+        function bodyload(){
+            poster.src = "../public/images/Mrunal_Thakur.jpg";
+            fromlogin.formsumbit.value = "Login";
+            formRegister.formRegsubmit.value = "Register";
+        }
+    </script>
+</head>
+
+<body onload="bodyload()">
+    <div>
+        <img width="550" height="500" name="poster" border="2">
+    </div>
+
+    <div>
+        <form name="fromlogin">
+            <h2>Login</h2>
+            <input type="email" placeholder="JohnDoe@gmail.com"> 
+            <input type="button" name="formsumbit" placeholder="Submit" value="submit">
+        </form>
+    </div>
+
+    <div>
+        <form name="formRegister">
+            <h2>Register</h2>
+            <input type="text" placeholder="Name">
+            <input type="text" placeholder="Mobile">
+            <input type="button" placeholder="submit" value="submit" name="formRegsubmit">
+        </form>
+    </div>
+</body>
+</html>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Document</title>
+
+<link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.css">
+<link rel="stylesheet" href="../node_modules/bootstrap-icons/font/bootstrap-icons.css">
+
+<script>
+function bodyload(){
+
+    fetch('https://api.nasa.gov/planetary/apod?api_key=DEMO_KEY')
+    .then(function(response){
+        return response.json();
+    })
+    .then(function(marsObject){
+
+        marsObject.photos.map(function(item){
+
+            var div = document.createElement("div");
+            div.className = "card m-2 p-2";
+            div.style.width = "200px";
+
+            div.innerHTML = `
+                <img src="${item.img_src}" class="card-img-top" height="150">
+                <div class="card-header">
+                    <div>${item.id}</div>
+                </div>
+
+                <div class="card-body">
+                    <dl>
+                        <dt class="bi bi-camera"> Camera </dt>
+                        <dd>${item.camera.full_name}</dd>
+                        <dt class="bi bi-rocket"> Rover </dt>
+                        <dd>${item.rover.name}</dd>
+                    </dl>
+                </div>
+
+                <div class="card-footer">
+                    <a class="btn btn-primary bi bi-eye w-100" href="${item.img_src}" target="_blank"> View </a>
+                </div>
+            `;
+
+            document.querySelector("section").appendChild(div);
+
+        });
+
+    });
+
+}
+</script>
+</head>
+
+<body class="container-fluid" onload="bodyload()">
+
+<header class="text-center">
+   <div class="fs-5 fw-bold">Mars Rover Photos</div>
+</header>
+
+<section class="d-flex flex-wrap overflow-auto" style="height:600px"></section>
+
+</body>
+</html>

@@ -1,0 +1,18 @@
+[
+  {
+    "Name": "iPhone 16 Pro",
+    "price": 129999
+  },
+  {
+    "Name": "Samsung Galaxy S24",
+    "price": 89999
+  },
+  {
+    "Name": "Google Pixel 9",
+    "price": 79999
+  },
+  {
+    "Name": "OnePlus 12",
+    "price": 69999
+  }
+]

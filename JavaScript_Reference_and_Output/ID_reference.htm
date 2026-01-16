@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en-in">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript ID Reference</title>
+
+    <script>
+        function bodyload() {
+            document.getElementById("Login-button").value;
+            document.getElementById("Register-button").value;
+            document.getElementById("Register-number").value;
+        }
+    </script>
+</head>
+
+<body onload="bodyload()">
+
+    <div>
+        <img src="../public/images/Bharat.jpg" id="poster" width="400" height="400" border="4">
+    </div>
+
+    <div>
+        <form name="Login-form">
+            <h2>Login</h2>
+            <input type="email">
+            <input type="button" id="Login-button" value="Login">
+        </form>
+    </div>
+
+    <div>
+        <form name="Register-form">
+            <h2>Register</h2>
+            <input type="email">
+            <input type="button" id="Register-button" value="Register">
+            <input type="button" id="Reset-button" value="Reset">
+            <br><br>
+            <input type="number" id="Register-number">
+        </form>
+    </div>
+
+
+</body>
+
+</html>

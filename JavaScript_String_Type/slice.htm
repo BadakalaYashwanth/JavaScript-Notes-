@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>slice() Practice</title>
+
+    <script>
+        function SliceString() {
+            const text = document.getElementById("txtString").value;
+            const start = document.getElementById("txtStart").value;
+            const end = document.getElementById("txtEnd").value;
+            const lbl = document.getElementById("lblResult");
+
+            if (text.length === 0) {
+                lbl.innerHTML = "Enter a string to slice.";
+                return;
+            }
+
+            // Convert inputs to numbers
+            const s = Number(start);
+            const e = end === "" ? null : Number(end);
+
+            let output = `<strong>Original:</strong> ${text}<br><br>`;
+
+            // Case 1: Only start index provided
+            if (end === "") {
+                output += `<strong>slice(${s}):</strong> ${text.slice(s)}<br>`;
+            } 
+            else {
+                // Case 2: Both start and end
+                if (e <= s) {
+                    lbl.innerHTML = "End index must be greater than start index.";
+                    return;
+                }
+
+                output += `<strong>slice(${s}, ${e}):</strong> ${text.slice(s, e)}<br>`;
+            }
+
+            lbl.innerHTML = output;
+        }
+    </script>
+</head>
+
+<body>
+    <h2>slice() Method Practice</h2>
+
+    <dl>
+        <dt>Enter String</dt>
+        <dd>
+            <input type="text" id="txtString" onkeyup="SliceString()">
+        </dd>
+
+        <dt>Start Index</dt>
+        <dd>
+            <input type="number" id="txtStart" onkeyup="SliceString()">
+        </dd>
+
+        <dt>End Index (optional)</dt>
+        <dd>
+            <input type="number" id="txtEnd" onkeyup="SliceString()">
+        </dd>
+
+        <dd id="lblResult" style="margin-top: 10px;"></dd>
+    </dl>
+
+</body>
+</html>

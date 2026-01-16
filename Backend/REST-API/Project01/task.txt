@@ -1,0 +1,35 @@
+REST APUI - JSON
+
+REST API Endpoints
+HTML Rendering
+
+GET /users
+Returns an HTML document rendering the list of all users.
+
+JSON API
+
+GET /api/users
+Returns a JSON list of all users.
+
+GET /api/users/1
+Returns the user with ID 1.
+
+GET /api/users/2
+Returns the user with ID 2.
+
+Dynamic Path Parameters
+
+GET /api/users/:id
+Returns a single user by ID.
+:id is a dynamic path parameter and represents a variable user ID.
+
+Write Operations
+
+POST /api/users
+Creates a new user.
+
+PATCH /api/users/:id
+Updates the user with the specified ID.
+
+DELETE /api/users/:id
+Deletes the user with the specified ID.

@@ -1,0 +1,2 @@
+
+This message demonstrates a blocking synchronous file read in Node.js.

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>charAt() + charCodeAt() Practice</title>
+
+    <script>
+        function AnalyzeString() {
+            const text = document.getElementById("txtInput").value;
+            const lbl = document.getElementById("lblOutput");
+
+            if (text.length === 0) {
+                lbl.innerHTML = "Start typing to analyze...";
+                return;
+            }
+
+            let result = "<strong>Character Analysis:</strong><br><br>";
+
+            for (let i = 0; i < text.length; i++) {
+                const ch = text.charAt(i);
+                const ascii = text.charCodeAt(i);
+
+                result += `Position ${i}: '${ch}' → ASCII: ${ascii}<br>`;
+            }
+
+            result += `<br><strong>Total Length:</strong> ${text.length}`;
+
+            lbl.innerHTML = result;
+        }
+    </script>
+</head>
+
+<body>
+    <h2>Live Character Analyzer (charAt + charCodeAt)</h2>
+
+    <dl>
+        <dt>Enter Any Text</dt>
+        <dd>
+            <input type="text" id="txtInput" onkeyup="AnalyzeString()">
+        </dd>
+
+        <dd id="lblOutput">Start typing to analyze...</dd>
+    </dl>
+
+</body>
+</html>

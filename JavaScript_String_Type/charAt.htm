@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>String Manipulation Practice</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+        }
+
+        dl {
+            width: 350px;
+        }
+
+        input, textarea {
+            width: 100%;
+            padding: 8px;
+            margin-top: 4px;
+            border: 1px solid #aaa;
+            border-radius: 4px;
+            font-weight: bold;
+        }
+
+        .info {
+            color: steelblue;
+            font-size: 13px;
+            margin-top: 5px;
+        }
+
+        .error{
+            color: red;
+            font-size: 13px;
+        }
+    </style>
+
+    <script>
+
+        function VerifyName() {
+            const username = document.getElementById("txtName").value;
+            const lblName = document.getElementById("lblName");
+
+            if (username.length === 0) {
+                lblName.textContent = "Name is required";
+                lblName.className = "error";
+                return;
+            }
+
+            // Practising charAt()
+            const firstChar = username.charAt(0);  
+            const lastChar = username.charAt(username.length - 1);
+
+            // Practising string formatting + manipulation
+            lblName.innerHTML = `
+                Length: ${username.length}<br>
+                First character: ${firstChar.toUpperCase()}<br>
+                Last character: ${lastChar.toUpperCase()}<br>
+                Uppercase: ${username.toUpperCase()}<br>
+                Lowercase: ${username.toLowerCase()}<br>
+            `;
+            lblName.className = "info";
+        }
+
+        function VerifyComments() {
+            const comments = document.getElementById("txtComments").value;
+            const lblComments = document.getElementById("lblComments");
+
+            lblComments.innerHTML = `
+                Characters left: ${100 - comments.length}<br>
+                First Char: ${comments.charAt(0) || "None"}<br>
+                Last Char: ${comments.charAt(comments.length - 1) || "None"}<br>
+            `;
+            lblComments.className = "info";
+        }
+
+    </script>
+</head>
+
+<body>
+    <h2>String Manipulation + charAt() Practice</h2>
+    <p><strong>charAt():</strong> The <strong>charAt()</strong> method in JavaScript is a built-in String method used to retrieve the character at a specified index within a string. </p>
+
+    <dl>
+        <dt>User Name</dt>
+        <dd><input type="text" id="txtName" onkeyup="VerifyName()"></dd>
+        <dd id="lblName"></dd>
+
+        <dt>Your Comments</dt>
+        <dd>
+            <textarea id="txtComments"
+                      maxlength="100"
+                      rows="4"
+                      cols="40"
+                      onkeyup="VerifyComments()"></textarea>
+        </dd>
+        <dd id="lblComments"></dd>
+    </dl>
+
+</body>
+</html>

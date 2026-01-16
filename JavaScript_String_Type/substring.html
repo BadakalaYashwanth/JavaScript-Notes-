@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>substring() Practice</title>
+
+    <script>
+        function SubStringMethod() {
+
+            const enter_string = document.getElementById("txtString").value;
+            const start_index = document.getElementById("txtStart").value;
+            const end_index = document.getElementById("txtEnd").value;
+            const result_string = document.getElementById("lblResult");
+
+            // Check string empty
+            if (enter_string.length === 0) {
+                result_string.innerHTML = "Enter the String";
+                return;
+            }
+
+            // Convert inputs to numbers
+            const s = Number(start_index);
+            const e = end_index === "" ? null : Number(end_index);
+
+            let output = `<strong>Original:</strong> ${enter_string}<br><br>`;
+
+            // Case 1: Only start index provided
+            if (end_index === "") {
+                output += `<strong>substring(${s}):</strong> ${enter_string.substring(s)}<br>`;
+            }
+
+            // Case 2: Both start & end provided
+            else {
+                if (isNaN(s) || isNaN(e)) {
+                    result_string.innerHTML = "Enter valid numbers";
+                    return;
+                }
+
+                // No need to check e <= s, because substring() automatically swaps!
+                output += `<strong>substring(${s}, ${e}):</strong> ${enter_string.substring(s, e)}<br><br>`;
+
+                // Demonstration of swapping (to help learning)
+                if (s > e) {
+                    output += `<em>Note:</em> Start index (${s}) was greater than end index (${e}).<br>`;
+                    output += `substring() automatically swapped them!<br>`;
+                }
+            }
+
+            result_string.innerHTML = output;
+        }
+    </script>
+</head>
+
+<body>
+    <h2>substring() Method Practice</h2>
+
+    <dl>
+        <dt>Enter String</dt>
+        <dd>
+            <input type="text" id="txtString" onkeyup="SubStringMethod()">
+        </dd>
+
+        <dt>Start Index</dt>
+        <dd>
+            <input type="number" id="txtStart" onkeyup="SubStringMethod()">
+        </dd>
+
+        <dt>End Index (optional)</dt>
+        <dd>
+            <input type="number" id="txtEnd" onkeyup="SubStringMethod()">
+        </dd>
+
+        <dd id="lblResult" style="margin-top: 10px;"></dd>
+    </dl>
+
+</body>
+</html>

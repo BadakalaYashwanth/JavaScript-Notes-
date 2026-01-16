@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>String Search Practice</title>
+
+    <script>
+        function AnalyzeString(){
+            const text = document.getElementById("txtString").value;
+            const search = document.getElementById("txtSearch").value;
+            const lbl = document.getElementById("lblResult");
+
+            if (text.length == 0) {
+                lbl.innerHTML = "Enter a string to analyze";
+                return;
+            }
+
+            if (search.length == 0) {
+                lbl.innerHTML = "Enter a character or text to search";
+                return;
+            }
+
+            const firstPos = text.indexOf(search);
+            const lastPos = text.lastIndexOf(search);
+
+            const starts = text.startsWith(search);
+            const ends = text.endsWith(search);
+
+            lbl.innerHTML = `
+                <strong>String:</strong> ${text}<br>
+                <strong>Search For:</strong> ${search}<br><br>
+
+                First Occurrence (indexOf): ${firstPos}<br>
+                Last Occurrence (lastIndexOf): ${lastPos}<br><br>
+
+                Starts With "${search}": ${starts}<br>
+                Ends With "${search}": ${ends}<br>
+            `;
+        }
+    </script>
+</head>
+
+<body>
+    <h2>indexOf(), lastIndexOf(), startsWith(), endsWith() Practice</h2>
+
+    <dl>
+        <dt>Enter String</dt>
+        <dd>
+            <input type="text" id="txtString" onkeyup="AnalyzeString()">
+        </dd>
+
+        <dt>Enter Text to Search</dt>
+        <dd>
+            <input type="text" id="txtSearch" onkeyup="AnalyzeString()">
+        </dd>
+
+        <dd id="lblResult" style="margin-top: 10px;"></dd>
+    </dl>
+
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dynamic Image Upload</title>
+
+    <script>
+        function create() {
+
+            // Step 1: Create image element
+            var img = document.createElement("img");
+
+            // Step 2: Set image source (correct path based on your folder structure)
+            img.src = "../public/images/Mrunal.jpg";
+
+            // Step 3: Set dimension
+            img.width = 150;
+            img.height = 150;
+
+            // Step 4: Add to page (append inside the div)
+            document.getElementById("container").appendChild(img);
+        }
+    </script>
+</head>
+
+<body>
+
+    <button onclick="create()">Upload Photo</button>
+    <br><br>
+
+    <!-- Container to display the image -->
+    <div id="container"></div>
+
+</body>
+</html>

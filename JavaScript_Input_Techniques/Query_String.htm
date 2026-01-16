@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Input Techniques - Query String</title>
+
+    <script>
+        function SearchClick() {
+            let Gadget = new URLSearchParams(location.search);
+
+            let cat = Gadget.get("category");
+            document.getElementById("lblcategory").innerText =
+                cat.charAt(0).toUpperCase() + cat.slice(1).toLowerCase();
+
+            document.getElementById("lblmodel").innerHTML = Gadget.get("model");
+            document.getElementById("lblbrand").innerText = Gadget.get("brand");
+        }
+    </script>
+</head>
+<body>
+    <dl>
+        <dt>Category</dt>
+        <dd id="lblcategory"></dd>
+
+        <dt>Model</dt>
+        <dd id="lblmodel"></dd>
+
+        <dt>Brand</dt>
+        <dd id="lblbrand"></dd>
+    </dl>
+
+    <button onclick="SearchClick()">Search</button>
+</body>
+</html>

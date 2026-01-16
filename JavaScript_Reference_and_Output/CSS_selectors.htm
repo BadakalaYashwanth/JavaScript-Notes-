@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en-in">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Selectors</title>
+
+    <script>
+        function bodyload() {
+            document.querySelector('img[name="poster"]').style.borderRadius = "10px";
+            document.getElementById('login-button').value = "Login"
+            document.querySelector('.register-button').value = "Register";
+        }
+    </script>
+</head>
+
+<body onload="bodyload()">
+
+
+    <div>
+        <img width="400" height="400" border="4" name="poster" src="../public/images/Bharat.jpg">
+    </div>
+
+    <div>
+        <form name="Login-form">
+            <h2>Login</h2>
+            <input type="email" placeholder="JohnDoe@gmail.com"> <input type="button" id="login-button" value="Login">
+        </form>
+    </div>
+
+
+    <div>
+        <form name="Register-form">
+            <h2>Register</h2>
+            <input type="text" placeholder="Name">
+            <input type="text" placeholder="Mobile">
+            <input type="button" class="register-button" value="Register">
+        </form>
+    </div>
+</body>
+
+</html>

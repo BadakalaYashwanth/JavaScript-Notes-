@@ -1,0 +1,72 @@
+
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Fakestore</title>
+
+    <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.css">
+
+    <link rel="stylesheet" href="../node_modules/bootstrap-icons/font/bootstrap-icons.css">
+
+    <script src="../node_modules/bootstrap/dist/js/bootstrap.bundle.js"></script>
+
+    <script src="../src/scripts/fakestore.js"></script>
+
+</head>
+
+<body class="container-fluid" onload="bodyload()">
+
+    <header class="d-flex mt-3 justify-content-between p-3 border border-1">
+
+        <div>
+
+            <span class="fs-4 fw-bold">Fakestore</span>
+
+        </div>
+
+        <div>
+
+            <div class="input-group">
+
+                <select class="input-group-text">
+
+                    <option>All</option>
+
+                    <option>Jewelery</option>
+
+                    <option>Electronics</option>
+
+                </select>
+
+                <input type="text" id="txtSearch" placeholder="Search Fakestore" class="form-control">
+
+                <button onclick="SearchClick()" class="bi bi-search btn btn-warning"></button>
+
+            </div>
+
+        </div>
+
+        <div>
+
+            <button class="btn btn-warning bi bi-cart4 position-relative"> <span class="badge bg-danger text-white  rounded rounded-circle position-absolute">0</span> </button>
+
+        </div>
+
+    </header>
+
+    <section class="d-flex flex-wrap align-items-baseline overflow-auto" style="height: 600px;">
+
+
+
+    </section>
+
+</body>
+
+</html>

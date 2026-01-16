@@ -1,0 +1,11 @@
+Second message written using fs.writeFileSync. This demonstrates another synchronous file write that executes in sequence.
+
+[1765885819141] Second sync append message. Appended after the first message.
+
+[1765885821139] Second sync append message. Appended after the first message.
+
+[1765885822245] Second sync append message. Appended after the first message.
+
+[1765885826839] Second sync append message. Appended after the first message.
+
+[1765885830904] Second sync append message. Appended after the first message.

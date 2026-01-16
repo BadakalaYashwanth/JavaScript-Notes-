@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Fakestore</title>
+
+    <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.css">
+
+    <link rel="stylesheet" href="../node_modules/bootstrap-icons/font/bootstrap-icons.css">
+
+    <script src="../node_modules/bootstrap/dist/js/bootstrap.bundle.js"></script>
+
+    <script src="./scripts/fakestore.js"></script>
+
+</head>
+
+<body class="container-fluid" onload="bodyload()">
+
+    <header class="d-flex mt-3 justify-content-between p-3 border border-1">
+
+        <div>
+
+            <span class="fs-4 fw-bold">Fakestore</span>
+
+        </div>
+
+        <nav>
+
+            <span class="mx-3"><a href="javascript:NavItemClick('home')">Home</a></span>
+
+            <span><a href="javascript:NavItemClick('electronics')">Electronics</a></span>
+
+            <span class="mx-3"><a href="javascript:NavItemClick('jewelery')">Jewelery</a></span>
+
+        </nav>
+
+        <div>
+
+            <div class="input-group">
+
+                <select class="input-group-text">
+
+                    <option>All</option>
+
+                    <option>Jewelery</option>
+
+                    <option>Electronics</option>
+
+                </select>
+
+                <input type="text" id="txtSearch" placeholder="Search Fakestore" class="form-control">
+
+                <button onclick="SearchClick()" class="bi bi-search btn btn-warning"></button>
+
+            </div>
+
+        </div>
+
+        <div>
+
+            <button onclick="ShowCartClick()" data-bs-toggle="offcanvas" data-bs-target="#cart" class="btn btn-warning bi bi-cart4 position-relative"> <span id="lblCount" class="badge bg-danger text-white  rounded rounded-circle position-absolute"></span> </button>
+
+            <div class="offcanvas offcanvas-end" id="cart">
+
+                <div class="offcanvas-header">
+
+                    <h2>Your Cart Items</h2>
+
+                    <button class="btn btn-close" data-bs-dismiss="offcanvas"></button>
+
+                </div>
+
+                <div class="offcanvas-body">
+
+                    <table class="table table-hover">
+
+                        <thead>
+
+                            <tr>
+
+                                <th>Title</th>
+
+                                <th>Preview</th>
+
+                                <th>Price</th>
+
+                            </tr>
+
+                        </thead>
+
+                        <tbody>
+
+
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </header>
+
+    <section class="d-flex flex-wrap align-items-baseline overflow-auto" style="height: 600px;">
+
+
+
+    </section>
+
+</body>
+
+</html>

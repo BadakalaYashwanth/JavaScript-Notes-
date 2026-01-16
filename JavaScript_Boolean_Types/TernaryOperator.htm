@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Ternary Example - Login Form</title>
+    <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.css">
+
+
+    <script>
+        function Loginform(){
+            const user = document.getElementById("txtusername").value;
+            const pass = document.getElementById("txtpassword").value;
+            const btn = document.getElementById("btnSubmit");
+        
+            btn.disabled = (user.length === 0  || pass.length === 0 ) ? true : false;
+        
+        }
+    </script>
+</head>
+
+<body class="p-4">
+
+    <form class="container-fluid w-25">
+
+        <h2 class="fw-semibold mb-3">Login Form</h2>
+
+        <div class="mb-2 fw-bold">Username</div>
+        <input type="text" class="form-control mb-3"
+               placeholder="Enter your username"
+               id="txtusername" onkeyup="Loginform()">
+
+        <div class="mb-2 fw-bold">Password</div>
+        <input type="password" class="form-control mb-3"
+               placeholder="Enter your password"
+               id="txtpassword" onkeyup="Loginform()">
+
+        <button id="btnSubmit" class="btn btn-success mt-2" disabled>Submit</button>
+
+    </form>
+
+</body>
+</html>

@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="../node_modules/bootstrap-icons/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.css">
+
+    <script>
+        var mobile = {
+            name: "Pixel 10 Pro",
+            brand: "Google",
+            model: "Crystal 4K",
+            category: "Electronics",
+            screenSize: "6.3 inch",
+            resolution: "4K UHD",
+            displayType: "LED",
+            color: "Black",
+            warranty: "2 Years",
+            countryOfOrigin: "India",
+            seller: "Google Official Store",
+
+            image: "../public/images/kindheart.jpg",
+
+            rating: {
+                rate: 4.8,
+                rating: 19106,
+                reviews: 830
+            },
+
+            price: 97000,
+            qty: 1,
+
+            offer: [
+                "Bank Offer 5% cashback on Flipkart Axis Bank Credit Card upto ₹4,000 per statement quarter T&C",
+                "Bank Offer 5% cashback on Axis Bank Flipkart Debit Card up to ₹750 T&C",
+                "Bank Offer Up To ₹30 Instant Cashback on BHIM Payments App. Min Order Value ₹199.",
+                "Special Price Get extra ₹9901 off (price inclusive of cashback/coupon) T&C"
+            ]
+        };
+
+        function bodyload() {
+            document.getElementById("imgProduct").src = mobile.image;
+
+            document.getElementById("lblTitle").innerHTML = mobile.name;
+
+            document.getElementById("rating").innerHTML =
+                `${mobile.rating.rate} <span class="bi bi-star-fill"></span>`;
+
+            document.getElementById("reviews").innerHTML =
+                `${mobile.rating.rating.toLocaleString("en-IN")} Ratings & 
+                 ${mobile.rating.reviews.toLocaleString("en-IN")} Reviews`;
+
+            document.getElementById("lblPrice").innerHTML =
+                mobile.price.toLocaleString("en-IN", {
+                    style: "currency",
+                    currency: "INR",
+                    minimumFractionDigits: 0
+                });
+
+            mobile.offer.map(function (offer) {
+                var li = document.createElement("li");
+                li.className = "bi bi-tag-fill text-success my-2";
+                li.innerHTML = `<span class="text-secondary ms-2">${offer}</span>`;
+                document.getElementById("offers").appendChild(li);
+            });
+        }
+    </script>
+</head>
+
+<body class="container-fluid" onload="bodyload()">
+
+    <div class="row mt-4">
+
+        <div class="col-3">
+            <img id="imgProduct" width="100%">
+        </div>
+
+        <div class="col-9">
+
+            <div class="fs-4 fw-bold" id="lblTitle"></div>
+
+            <div class="mt-2">
+                <span class="badge bg-success p-2 text-white" id="rating"></span>
+                <span class="mx-2 fs-5 text-secondary fw-bold" id="reviews"></span>
+            </div>
+
+            <div class="mt-4 fs-1 fw-bold" id="lblPrice"></div>
+
+            <ul id="offers" class="list-unstyled mt-3"></ul>
+
+        </div>
+
+    </div>
+
+</body>
+</html>

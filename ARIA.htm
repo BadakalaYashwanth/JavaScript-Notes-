@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ARIA Accessibility Demo</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            padding: 2rem;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: auto;
+            border: 1px solid #ddd;
+            padding: 20px;
+            border-radius: 8px;
+        }
+
+        .demo-section {
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #eee;
+        }
+
+        /* Menu Styles */
+        #menu-content {
+            display: none;
+            background: #f4f4f4;
+            padding: 10px;
+            margin-top: 5px;
+        }
+
+        #menu-content.show {
+            display: block;
+        }
+
+        /* Icon Button Styles */
+        .icon-btn {
+            background: #ff4d4d;
+            color: white;
+            border: none;
+            padding: 10px;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .icon-btn:hover {
+            background: #cc0000;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <h1>ARIA Demo</h1>
+
+        <div class="demo-section">
+            <h3>1. State Management (Menu)</h3>
+            <p>This button tells a screen reader if the content below is open or closed.</p>
+
+            <button id="menu-btn" aria-expanded="false" aria-controls="menu-content">
+                Toggle Settings Menu
+            </button>
+
+            <div id="menu-content" role="region">
+                <p>✅ The screen reader now knows this section is visible.</p>
+                <ul>
+                    <li>Profile Settings</li>
+                    <li>Privacy</li>
+                    <li>Logout</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="demo-section">
+            <h3>2. Labeling (Icon Buttons)</h3>
+            <p>The button below has no text, but the <strong>aria-label</strong> provides context.</p>
+
+            <button class="icon-btn" aria-label="Delete this document" onclick="alert('Deleted!')">
+                <span aria-hidden="true">🗑️</span>
+            </button>
+            <span>(Visual trash icon only)</span>
+        </div>
+    </div>
+
+    <script>
+        const menuBtn = document.getElementById('menu-btn');
+        const menuContent = document.getElementById('menu-content');
+
+        menuBtn.addEventListener('click', () => {
+            const isExpanded = menuBtn.getAttribute('aria-expanded') === 'true';
+
+            // Toggle the ARIA state
+            menuBtn.setAttribute('aria-expanded', !isExpanded);
+
+            // Toggle the visual display
+            menuContent.classList.toggle('show');
+        });
+    </script>
+
+</body>
+
+</html>
