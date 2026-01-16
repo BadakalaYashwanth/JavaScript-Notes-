@@ -1,0 +1,31 @@
+Starting Step of Pushing the project into the GitHub using the git
+
+git init
+
+git status
+
+echo.> gitignore
+# add ignore rules
+
+git add .
+
+git commit -m "Initial commit"
+
+git remote add origin https://github.com/USERNAME/REPO_NAME.git
+
+git remote -v
+
+git branch -M main
+
+git push -u origin main
+
+
+Every single time you change code:
+
+git status
+
+git add .
+
+git commit -m "message"
+
+git push 
