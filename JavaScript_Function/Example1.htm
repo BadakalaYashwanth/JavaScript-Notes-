@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Function Expression Example</title>
+</head>
+<body>
+
+<h2>Login Check</h2>
+
+<script>
+    var result;
+
+var password = prompt("Enter the password");
+
+if (password === "09876") {
+    result = function () {
+        document.body.innerText = "Login Successful";
+    };
+} else {
+    result = function () {
+        alert("Invalid Credentials");
+    };
+}
+
+result();
+
+</script>
+
+</body>
+</html>
