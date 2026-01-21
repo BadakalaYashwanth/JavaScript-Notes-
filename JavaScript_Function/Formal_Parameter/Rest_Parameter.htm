@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Rest Parameter Example</title>
+</head>
+<body>
+
+<h2>Rest Parameters Output</h2>
+
+<div id="output"></div>
+
+<script>
+    function sum(...numbers) {
+    let total = 0;
+
+    for (let value of numbers) {
+        total += value;
+    }
+
+    // display result in browser
+    document.getElementById("output").innerHTML += total + "<br>";
+}
+
+// ACTUAL PARAMETERS
+sum(10, 20);
+sum(5, 10, 15);
+sum(1, 2, 3, 4);
+
+</script>
+
+</body>
+</html>
