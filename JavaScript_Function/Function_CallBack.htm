@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Function CallBack</title>
+</head>
+<body>
+
+<h2>Function_Callback</h2>
+
+<pre id="output"></pre>
+
+<script>
+    function FetchAPI(url, success, failure) {
+    if (url === "fakestore") {
+        success([
+            {
+                Name: "Yashwanth",
+                CodeForceRank: 234,
+                Role: "Software Developer"
+            }
+        ]);
+    } else {
+        failure("Invalid Url: " + url);
+    }
+}
+
+FetchAPI(
+    prompt("Enter URL"),
+    function (response) {
+        document.getElementById("output").innerText =
+            JSON.stringify(response, null, 2);
+    },
+    function (error) {
+        document.getElementById("output").innerText = error;
+    }
+);
+
+</script>
+
+</body>
+</html>
